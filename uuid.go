@@ -43,6 +43,11 @@ func MustParse(str string) UUID {
 	return UUID(uuid.MustParse(str))
 }
 
+func Parse(str string) (UUID, error) {
+	u, err := uuid.Parse(str)
+	return UUID(u), err
+}
+
 func (u UUID) MarshalText() ([]byte, error) {
 	return uuid.UUID(u).MarshalText()
 }
